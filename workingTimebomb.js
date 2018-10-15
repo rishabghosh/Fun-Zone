@@ -2,9 +2,20 @@ const voice = require("say");
 const audio = require("play");
 const narrator = "alex";
 const message = "Boom";
+
+const welcomeMsg1 = "Hello Everyone!";
+const welcomeMsg2 = "I am a TIMEBOMB...";
+const welcomeMsg3 = "Be careful when it explodes...";
+const welcomeMsg4 = "Starting Timer..";
+
 const pokeMessage1 = "Unexpected Error Occurred!";
 const pokeMessage2 = "Just kidding.";
 const pokeMessage3 = "Resuming counting...";
+
+const conclude1 = "If you want to look at the code."
+const conclude2 = "Follow me on github"
+const conclude3 = "Redirecting to github"
+
 let multiplier = 1;
 
 const timer = function(countFrom, countTo){
@@ -17,11 +28,11 @@ const timer = function(countFrom, countTo){
   }
 }
 
-const pokeInMiddle = function(msg, addDelay, delayAtBeginning){
+const createMessage = function(msg, addDelay, delayAtBeginning, speed){
   multiplier += delayAtBeginning;
 
   setTimeout( () => console.log(msg), 1000 * multiplier + 300);
-  setTimeout( () => voice.speak(msg, narrator, 1), 1000 * multiplier);
+  setTimeout( () => voice.speak(msg, narrator, speed), 1000 * multiplier);
 
   multiplier += addDelay;
 }
@@ -33,17 +44,28 @@ const createFinalMessage = function(){
   //setTimeout( () => audio.sound("./despacito.mp3"), 1000*multiplier);
 }
 
-const exit = function(){
+const clearScreen = function(){
   multiplier += 2;
   setTimeout( () => console.clear(), 1000 * multiplier);
-  //setTimeout( () => process.exit(), 1000 * multiplier + 10);
 }
 
+createMessage(welcomeMsg1, 3, 0, 1);
+createMessage(welcomeMsg2, 3.5, 0, 1.1);
+createMessage(welcomeMsg3, 4, 0, 1.2);
+createMessage(welcomeMsg4, 2, 0, 1.2);
+
 timer(10,5);
-pokeInMiddle(pokeMessage1, 4, 3);
-pokeInMiddle(pokeMessage2, 2, 0);
-pokeInMiddle(pokeMessage3, 2, 0);
+createMessage(pokeMessage1, 4, 3, 1);
+createMessage(pokeMessage2, 2, 0, 1);
+createMessage(pokeMessage3, 2, 0, 1);
 timer(4,1);
 createFinalMessage();
-exit();
+clearScreen();
+
+multiplier += 1;
+createMessage(conclude1, 2, 0, 1.3);
+createMessage(conclude2, 2, 0, 1.1);
+createMessage(conclude3, 2, 0, 1.2);
+
+setTimeout( ()=> require("openurl").open("https://github.com/rishabghosh/"), 1000 * multiplier);
 
