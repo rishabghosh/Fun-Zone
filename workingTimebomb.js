@@ -71,3 +71,5 @@ setTimeout( ()=> require("openurl").open("https://github.com/rishabghosh/"), 100
 clearScreen();
 //multiplier += 5;
 //setTimeout( ()=> audio.sound("./despacito.mp3"), 1000*multiplier );
+
+
