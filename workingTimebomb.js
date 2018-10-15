@@ -4,9 +4,9 @@ const narrator = "alex";
 const message = "Boom";
 
 const welcomeMsg1 = "Hello Everyone!";
-const welcomeMsg2 = "I am a TIMEBOMB...";
+const welcomeMsg2 = "It is a TIMEBOMB...";
 const welcomeMsg3 = "Be careful when it explodes...";
-const welcomeMsg4 = "Starting Timer..";
+const welcomeMsg4 = "Starting timer..";
 
 const pokeMessage1 = "Unexpected Error Occurred!";
 const pokeMessage2 = "Just kidding.";
@@ -41,11 +41,11 @@ const createFinalMessage = function(){
   setTimeout( () => console.log(message), 1000 * multiplier);
   setTimeout( () => voice.speak(message , narrator, 0.5), 1000 * multiplier);
   multiplier += 1.5
-  //setTimeout( () => audio.sound("./despacito.mp3"), 1000*multiplier);
+  setTimeout( () => audio.sound("./boom.mp3"), 1000*multiplier);
 }
 
 const clearScreen = function(){
-  multiplier += 2;
+  multiplier += 7;
   setTimeout( () => console.clear(), 1000 * multiplier);
 }
 
@@ -68,4 +68,6 @@ createMessage(conclude2, 2, 0, 1.1);
 createMessage(conclude3, 2, 0, 1.2);
 
 setTimeout( ()=> require("openurl").open("https://github.com/rishabghosh/"), 1000 * multiplier);
-
+clearScreen();
+//multiplier += 5;
+//setTimeout( ()=> audio.sound("./despacito.mp3"), 1000*multiplier );
