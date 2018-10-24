@@ -1,0 +1,29 @@
+setInterval for console.logging in every given 100ms
+console.timeEnd inside setInterval, then again console.time
+take the integer values of console.timeEnd and keep adding it.
+
+
+new Date()getMilliseconds() => that will get you ms
+if this thing is == 00 then do this => setInterval someting.
+
+call recursive function
+if millisec != 0 call that function again
+
+const  ms the value u get from new date get milliseconds
+new variable newMs = new date().getms() - ms
+take only first two digits  by newMs/10 and math.ceil()
+
+-------------------better logic -------------------
+setInterval ( with , 10 ms timeout), 
+    currentMS = new Date().getMilliseconds();
+    if currentMs >= 990 then seconds ++
+    if seconds >=60 then seconds = 0 & minutes ++
+    if minutes >= 60 then minutes = 0 & hours ++
+
+setInterval ( 50 ms)
+    console.clear();
+    console.log( h , m, s, ms);
+ 
+
+
+

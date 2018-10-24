@@ -1,6 +1,8 @@
 const timer = function(countFrom, multiplier){
+  
   for( let i = countFrom; i>= 1; i--){
-    setTimeout( () => console.log(i+".."), 1000 * multiplier);
+    let delay = 1000 * multiplier;
+    setTimeout( () => console.log(i+".."), delay);
     multiplier++;
   }
   return multiplier;
